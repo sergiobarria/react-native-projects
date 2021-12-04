@@ -2,33 +2,13 @@ import React from 'react';
 import {StyleSheet, View, Animated} from 'react-native';
 
 // Constants
-import {images, theme} from '../constants';
-const {onboarding1, onboarding2, onboarding3} = images;
-// import {onBoardings} from '../constants';
+import {theme} from '../constants';
 
 // Theme
 const {COLORS, SIZES} = theme;
 
-const onBoardings = [
-  {
-    title: "Let's Travelling",
-    description:
-      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut',
-    img: onboarding1,
-  },
-  {
-    title: 'Navigation',
-    description:
-      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut',
-    img: onboarding2,
-  },
-  {
-    title: 'Destination',
-    description:
-      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut',
-    img: onboarding3,
-  },
-];
+// Dummy Data
+import onBoardings from '../constants/data';
 
 const renderDots = ({scrollX}) => {
   const dotPosition = Animated.divide(scrollX, SIZES.width);

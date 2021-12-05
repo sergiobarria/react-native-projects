@@ -8,20 +8,26 @@ import {PlantDetail} from './app/screens';
 // Tabs
 import Tabs from './app/navigation/tabs';
 
+const theme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    border: 'transparent',
+  },
+};
+
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={theme}>
       <Stack.Navigator
-        screenOptions={{headerShown: false}}
+        screenOptions={{
+          headerShown: false,
+        }}
         initialRouteName={'Home'}>
         {/* Tabs */}
-        <Stack.Screen
-          name="Home"
-          component={Tabs}
-          options={{headerShown: false}}
-        />
+        <Stack.Screen name="Home" component={Tabs} />
 
         {/* Screens */}
         <Stack.Screen

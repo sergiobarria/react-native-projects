@@ -72,6 +72,7 @@ export default function Tabs() {
               );
           }
         },
+        headerShown: false,
       })}>
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Box" component={Home} />
@@ -81,6 +82,49 @@ export default function Tabs() {
     </Tab.Navigator>
   );
 }
+
+// ({route}) => ({
+//   tabBarIcon: ({focused}) => {
+//     const tintColor = focused ? COLORS.primary : COLORS.gray;
+
+//     switch (route.name) {
+//       case 'Home':
+//         return (
+//           <Image
+//             source={icons.flash}
+//             resizeMode="contain"
+//             style={[{tintColor: tintColor}, styles.tabIcon]}
+//           />
+//         );
+//       case 'Box':
+//         return (
+//           <Image
+//             source={icons.cube}
+//             resizeMode="contain"
+//             style={[{tintColor: tintColor}, styles.tabIcon]}
+//           />
+//         );
+//       case 'Camera':
+//         return <CameraButton />;
+//       case 'Search':
+//         return (
+//           <Image
+//             source={icons.search}
+//             resizeMode="contain"
+//             style={[{tintColor: tintColor}, styles.tabIcon]}
+//           />
+//         );
+//       case 'Favorite':
+//         return (
+//           <Image
+//             source={icons.heart}
+//             resizeMode="contain"
+//             style={[{tintColor: tintColor}, styles.tabIcon]}
+//           />
+//         );
+//     }
+//   },
+// })
 
 const styles = StyleSheet.create({
   tabIcon: {

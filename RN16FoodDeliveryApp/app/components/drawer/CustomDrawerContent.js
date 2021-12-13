@@ -11,7 +11,11 @@ import {
 } from '../../constants';
 import CustomDrawerItem from './CustomDrawerItem';
 
-export default function CustomDrawerContent({ navigation }) {
+export default function CustomDrawerContent({
+  navigation,
+  selectedTab,
+  setSelectedTab,
+}) {
   return (
     <DrawerContentScrollView
       scrollEnabled={true}
@@ -69,7 +73,16 @@ export default function CustomDrawerContent({ navigation }) {
             marginTop: SIZES.padding,
           }}>
           {constants.drawerTabsTop.map(tab => (
-            <CustomDrawerItem key={tab.id} label={tab.label} icon={tab.icon} />
+            <CustomDrawerItem
+              key={tab.id}
+              label={tab.label}
+              icon={tab.icon}
+              isFocused={selectedTab === tab.label}
+              onPress={() => {
+                setSelectedTab(tab.label);
+                navigation.navigate('MainLayout');
+              }}
+            />
           ))}
 
           {/* Line Divider */}
@@ -83,7 +96,16 @@ export default function CustomDrawerContent({ navigation }) {
           />
 
           {constants.drawerTabsBottom.map(tab => (
-            <CustomDrawerItem key={tab.id} label={tab.label} icon={tab.icon} />
+            <CustomDrawerItem
+              key={tab.id}
+              label={tab.label}
+              icon={tab.icon}
+              isFocused={selectedTab === tab.label}
+              onPress={() => {
+                setSelectedTab(tab.label);
+                navigation.navigate('MainLayout');
+              }}
+            />
           ))}
         </View>
 

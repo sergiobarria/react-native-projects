@@ -7,9 +7,12 @@ import { COLORS } from '../constants';
 import { MainLayout } from '../screens';
 import CustomDrawerContent from '../components/drawer/CustomDrawerContent';
 
+import { connect } from 'react-redux';
+import { setSelectedTab } from '../stores/tab/tabActions';
+
 const Drawer = createDrawerNavigator();
 
-export default function CustomDrawer() {
+const CustomDrawer = ({ selectedTab, setSelectedTab }) => {
   return (
     <View
       style={{
@@ -33,7 +36,13 @@ export default function CustomDrawer() {
           },
         }}
         drawerContent={props => {
-          return <CustomDrawerContent navigation={props.navigation} />;
+          return (
+            <CustomDrawerContent
+              navigation={props.navigation}
+              selectedTab={selectedTab}
+              setSelectedTab={setSelectedTab}
+            />
+          );
         }}>
         <Drawer.Screen name='MainLayout'>
           {props => <MainLayout {...props} />}
@@ -41,4 +50,20 @@ export default function CustomDrawer() {
       </Drawer.Navigator>
     </View>
   );
+};
+
+function mapStateToProps(state) {
+  return {
+    selectedTab: state.tabReducer.selectedTab,
+  };
 }
+
+function mapDispatchToProps(dispatch) {
+  return {
+    setSelectedTab: selectedTab => {
+      return dispatch(setSelectedTab(selectedTab));
+    },
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CustomDrawer);

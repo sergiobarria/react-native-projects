@@ -5,7 +5,7 @@ const screens = {
   home: 'Home',
   search: 'Search',
   cart: 'Cart',
-  favorite: 'Favorite',
+  favourite: 'Favourite',
   notification: 'Notification',
   my_wallet: 'My Wallet',
 };
@@ -28,7 +28,7 @@ const drawerTabsTop = [
   },
   {
     id: 3,
-    label: 'Favorite',
+    label: 'Favourite',
     icon: icons.favourite,
   },
 ];
@@ -76,7 +76,7 @@ const bottomTabs = [
   },
   {
     id: 3,
-    label: screens.favorite,
+    label: screens.favourite,
   },
   {
     id: 4,
